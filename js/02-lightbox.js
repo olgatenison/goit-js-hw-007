@@ -18,10 +18,10 @@ console.log(markup);
 const gallaryList = document.querySelector('.gallery');
 gallaryList.insertAdjacentHTML('beforeend', markup);
 
-// let gallery = new SimpleLightbox('.gallery a', 
-// { captionsData: '${description}'
-// captionDelay: 250
-// });
+const gallery = new SimpleLightbox('.gallery a', 
+{ captionsData: '${description}',
+captionDelay: 250,
+});
 
 
 

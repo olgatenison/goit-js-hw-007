@@ -6,22 +6,33 @@ console.log(galleryItems);
 
 const markup = galleryItems.map (({preview, original, description}) => {
     return `
-    <li><a class="gallery__item" 
+    <a class="gallery__item" 
         href="${original}">
         <img class="gallery__image" 
         src="${preview}" 
-        alt="${description}/>
-    </a></li>`
+        alt="${description}"/>
+    </a>`
 }) .join("");
 console.log(markup);
 
 const gallaryList = document.querySelector('.gallery');
 gallaryList.insertAdjacentHTML('beforeend', markup);
 
-const gallery = new SimpleLightbox('.gallery a', 
-{ captionsData: '${description}',
+gallaryList.addEventListener ('click', onGalleryItemClick )
+
+function onGalleryItemClick(evt){
+
+    evt.preventDefault();
+
+    if (evt.target.nodeName !== "IMG") {
+    return;
+}
+    
+let galleryLightbox = new SimpleLightbox('.gallery a', 
+{ captionsData: 'alt',
 captionDelay: 250,
-});
+})
+}
 
 
 

@@ -47,7 +47,9 @@ function onGalleryItemClick(evt){
     if (evt.code == 'Escape') {
         selectedImg.close() 
         } 
-    }       
+    window.removeEventListener("keydown", onOpenGalleryItemKeydown);      
+    }   
+   
 }
 
 
